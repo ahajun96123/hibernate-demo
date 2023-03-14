@@ -20,6 +20,18 @@ public class MemberService {
         Optional<MemberEntity> userOptional = userRepository.findById(id);
         return userOptional.orElse(null);
     }
+    public MemberEntity getUserByUsername(String username) {
+        Optional<MemberEntity> userOptional = userRepository.findByUsername(username);
+        return userOptional.orElse(null);
+    }
+    public MemberEntity getUserByName(String name) {
+        Optional<MemberEntity> userOptional = userRepository.findByName(name);
+        return userOptional.orElse(null);
+    }
+    public MemberEntity getUserByNameAndIdLessThan(String name, Long id) {
+        Optional<MemberEntity> userOptional = userRepository.findByNameAndAndPidIsLessThan(name, id);
+        return userOptional.orElse(null);
+    }
 
     public List<MemberEntity> findAll() {
         return memberRepository.findAll();

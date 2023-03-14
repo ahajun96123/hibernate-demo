@@ -16,13 +16,25 @@ public class MemberController {
     /**
      * 멤버 조회
      */
-    @GetMapping("members")
+    @GetMapping("member")
     public List<MemberEntity> findAllMember() {
         return memberService.findAll();
     }
-    @GetMapping("member")
+    @GetMapping(value = "member", params = {"id"})
     public MemberEntity getMemberById(@RequestParam Long id) {
         return memberService.getUserById(id);
+    }
+    @GetMapping(value = "member", params = {"username"})
+    public MemberEntity getMemberByUsername(@RequestParam String username) {
+        return memberService.getUserByUsername(username);
+    }
+    @GetMapping(value = "member", params = {"name"})
+    public MemberEntity getMemberByName(@RequestParam String name) {
+        return memberService.getUserByName(name);
+    }
+    @GetMapping(value = "member", params = {"name", "id"})
+    public MemberEntity getMemberByNameAndIdLessThan(@RequestParam String name, @RequestParam Long id) {
+        return memberService.getUserByNameAndIdLessThan(name, id);
     }
 
     /**
