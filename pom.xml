@@ -14,7 +14,7 @@
 	<name>test_hibernate</name>
 	<description>test_hibernate</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
